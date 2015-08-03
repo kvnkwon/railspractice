@@ -1,4 +1,5 @@
-class UserController < ActionController::Base
+class UserController < ApplicationController
+
   def show
 
   end

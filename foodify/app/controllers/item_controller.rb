@@ -1,4 +1,4 @@
-class ItemController < ActionController::Base
+class ItemController < ApplicationController
 
   def new
   end

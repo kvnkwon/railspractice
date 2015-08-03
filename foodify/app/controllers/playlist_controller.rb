@@ -1,4 +1,4 @@
-class PlaylistController < ActionController::Base
+class PlaylistController < ApplicationController
 
   def new
   end
