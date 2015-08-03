@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, :only => [:show, :destroy] do
     resources :playlists, except: :index do
       resources :items, except: :index
