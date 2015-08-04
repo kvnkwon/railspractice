@@ -1,0 +1,5 @@
+<% if @results %>
+  <% @results.each do |result| %>
+    <li><%= result.name %> <%= result.location.display_address %></li>
+  <% end %>
+<% end %>
