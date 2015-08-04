@@ -1,7 +1,13 @@
 class PlaylistsController < ApplicationController
 
+  def index
+    @user = User.find(params[:user_id])
+    @playlists = @user.playlists
+  end
+
   def new
-    if current_user
+    user = User.find(params[:user_id])
+    if current_user == user
       @playlist = Playlist.new
     else
       redirect_to new_user_session_path
@@ -24,7 +30,8 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
-    if current_user
+    user = User.find(params[:user_id])
+    if current_user == user
       @playlist = Playlist.find(params[:id])
     else
       redirect_to new_user_session_path
