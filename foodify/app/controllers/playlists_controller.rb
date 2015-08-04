@@ -12,7 +12,7 @@ class PlaylistsController < ApplicationController
     @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
     if @playlist.save
-      redirect_to user_playlist_path(@playlist.id)
+      render :show
     else
       render :new
     end
@@ -24,9 +24,20 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
+    if current_user
+      @playlist = Playlist.find(params[:id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def update
+    @playlist = Playlist.find(params[:id])
+    if @playlist.update(playlist_params)
+      render :show
+    else
+      render :edit
+    end
   end
 
   def destroy
