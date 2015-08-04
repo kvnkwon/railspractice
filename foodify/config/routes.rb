@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :users, :only => [:show, :destroy] do
-    resources :playlists, except: :index do
-      resources :items, except: :index
+  resources :user, :only => [:show, :destroy] do
+    resources :playlist, except: :index do
+      resources :item, except: :index
     end
   end
 
