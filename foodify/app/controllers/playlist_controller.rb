@@ -19,6 +19,8 @@ class PlaylistController < ApplicationController
   end
 
   def show
+    @playlist = Playlist.find(params[:id])
+    @items = @playlist.items
   end
 
   def edit
