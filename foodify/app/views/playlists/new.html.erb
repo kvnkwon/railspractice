@@ -1,0 +1,5 @@
+<%= form_for @playlist, url: user_playlists_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Enter your playlist name here" %>
+  <%= f.submit "Create", class: "btn btn-success" %>
+<% end %>

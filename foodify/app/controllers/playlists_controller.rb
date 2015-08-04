@@ -32,6 +32,8 @@ class PlaylistsController < ApplicationController
   def destroy
   end
 
+  protected
+
   def playlist_params
     params.require(:playlist).permit(:name)
   end
