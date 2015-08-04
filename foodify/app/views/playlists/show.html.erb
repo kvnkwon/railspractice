@@ -1,0 +1,7 @@
+<h2><%= @playlist.name %></h2>
+
+<% if @items %>
+  <% @items.each do |item| %>
+    <li><%= item %></li>
+  <% end %>
+<% end %>
