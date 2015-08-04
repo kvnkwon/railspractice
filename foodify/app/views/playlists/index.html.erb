@@ -1,6 +1,6 @@
 <% if @playlists %>
   <% @playlists.each do |playlist| %>
-    <li><%= playlist.name %></li>
+    <li><%= link_to playlist.name, "/users/#{playlist.user.id}/playlists/#{playlist.id}" %></li>
   <% end %>
 <% else %>
   <h1>You don't have any playlists yet.</h1>
