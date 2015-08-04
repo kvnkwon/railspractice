@@ -1,4 +1,4 @@
-class PlaylistController < ApplicationController
+class PlaylistsController < ApplicationController
 
   def new
     if current_user

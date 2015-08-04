@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :user, :only => [:show, :destroy] do
-    resources :playlist, except: :index do
-      resources :item, except: :index
+  resources :users, :only => [:show, :destroy] do
+    resources :playlists, except: :index do
+      resources :items, except: :index
     end
   end
 
-  root 'home#index'
-  get '/search' => 'home#search'
+  root 'homes#index'
+  get '/search' => 'homes#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
