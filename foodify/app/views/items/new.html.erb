@@ -1,0 +1,5 @@
+<%= form_for @item, url: user_playlist_items_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "What is the food's name?" %>
+  <%= f.submit "Create", class: "btn btn-success" %>
+<% end %>

@@ -1,12 +1,28 @@
 class ItemsController < ApplicationController
 
   def new
-  end
-
-  def show
+    user = User.find(params[:user_id])
+    if current_user == user
+      @item = Item.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
+    @item = Item.new(item_params)
+    @playlist = Playlist.find(params[:playlist_id])
+    @item.playlist = @playlist
+
+    if @item.save
+      redirect_to controller: "playlists", action: "show", id: @playlist.id
+    else
+      render :new
+    end
+
+  end
+
+  def show
   end
 
   def edit
@@ -16,6 +32,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+  end
+
+  protected
+
+  def item_params
+    params.require(:item).permit(:name)
   end
 
 end

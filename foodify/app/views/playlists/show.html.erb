@@ -2,6 +2,8 @@
 
 <% if @items %>
   <% @items.each do |item| %>
-    <li><%= item %></li>
+    <li><%= item.name %></li>
   <% end %>
 <% end %>
+
+<%= link_to "New item", "/users/#{@playlist.user.id}/playlists/#{@playlist.id}/items/new" %>
