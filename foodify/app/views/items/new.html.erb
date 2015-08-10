@@ -3,3 +3,17 @@
   <%= f.text_field :name, placeholder: "What is the food's name?" %>
   <%= f.submit "Create", class: "btn btn-success" %>
 <% end %>
+
+<%= form_for search_path, method: "get", class: "form-inline" do %>
+  <%= label_tag(:term, "Search for:") %>
+  <%= text_field_tag(:term) %>
+  <%= label_tag(:location, "Near:") %>
+  <%= text_field_tag(:location) %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<% if @results %>
+  <% @results.each do |result| %>
+    <li><%= result.name %> <%= result.location.display_address %></li>
+  <% end %>
+<% end %>
