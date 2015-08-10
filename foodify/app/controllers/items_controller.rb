@@ -14,10 +14,11 @@ class ItemsController < ApplicationController
     @playlist = Playlist.find(params[:playlist_id])
     @item.playlist = @playlist
 
-    location = params[:location]
-    parameters = { term: params[:term], limit: 5 }
-    yelp_search = Yelp.client.search(location, parameters)
-    @results = yelp_search.businesses
+    # Yelp's search results
+    # location = params[:location]
+    # parameters = { term: params[:term], limit: 5 }
+    # yelp_search = Yelp.client.search(location, parameters)
+    # @results = yelp_search.businesses
 
     if @item.save
       redirect_to controller: "playlists", action: "show", id: @playlist.id

@@ -1,19 +1,16 @@
 <%= form_for @item, url: user_playlist_items_path do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: "What is the food's name?" %>
-  <%= f.submit "Create", class: "btn btn-success" %>
+
+  <!-- Search for restaurant and location using Yelp SEARCH API. This will return 5 results.
+  Allow user to select the correct one out of the results that Yelp returns.
+  Get the restaurant they chose, look in Restaurants table to see if it exists, if not create it.
+  Add that restaurant's ID to this item.
+  <%= f.label :term, "Restaurant's name?" %>
+  <%= f.text_field :term %>
+  <%= f.label :location, "Where is it?" %>
+  <%= f.text_field :location %> -->
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>
 
-<%= form_for search_path, method: "get", class: "form-inline" do %>
-  <%= label_tag(:term, "Search for:") %>
-  <%= text_field_tag(:term) %>
-  <%= label_tag(:location, "Near:") %>
-  <%= text_field_tag(:location) %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<% if @results %>
-  <% @results.each do |result| %>
-    <li><%= result.name %> <%= result.location.display_address %></li>
-  <% end %>
-<% end %>
